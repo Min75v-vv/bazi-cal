@@ -39,3 +39,13 @@ def test_build_events_and_main(tmp_path):
     data = out.read_bytes()
     assert data.count(b"BEGIN:VEVENT") == 10
     assert b"\r\n" in data and b"\n" not in data.replace(b"\r\n", b"")
+
+
+def test_main_does_not_print_chart_by_default(tmp_path, capsys):
+    # 公开仓库的 CI 日志任何人可见：默认输出不得包含命盘或出生时间
+    out = tmp_path / "bazi.ics"
+    main(["--config", str(ROOT / "config.yaml"), "--out", str(out), "--days", "1"])
+    printed = capsys.readouterr().out
+    assert "命盘" not in printed and "真太阳时" not in printed
+    main(["--config", str(ROOT / "config.yaml"), "--out", str(out), "--days", "1", "--show-chart"])
+    assert "真太阳时" in capsys.readouterr().out

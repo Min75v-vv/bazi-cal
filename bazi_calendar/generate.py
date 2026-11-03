@@ -100,6 +100,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--out", default="public/bazi.ics")
     ap.add_argument("--start", help="起始日期 YYYY-MM-DD，默认为日历时区的今天")
     ap.add_argument("--days", type=int, help="天数，默认取 config 中 calendar.days")
+    ap.add_argument("--show-chart", action="store_true",
+                    help="打印命盘与真太阳时（仅本地使用；公开仓库的 CI 日志任何人可见，切勿开启）")
     args = ap.parse_args(argv)
 
     cfg = load_config(args.config)
@@ -115,7 +117,8 @@ def main(argv: list[str] | None = None) -> int:
     with out.open("w", encoding="utf-8", newline="") as f:
         f.write(build_calendar(events, cfg.calendar_name))
 
-    print(f"命盘 {natal.year} {natal.month} {natal.day} {natal.time}，"
-          f"真太阳时 {natal.solar_time:%Y-%m-%d %H:%M}")
-    print(f"已生成 {len(events)} 天（{start} 起）→ {out}")
+    if args.show_chart:
+        print(f"命盘 {natal.year} {natal.month} {natal.day} {natal.time}，"
+              f"真太阳时 {natal.solar_time:%Y-%m-%d %H:%M}")
+    print(f"已生成 {len(events)} 天 → {out}")
     return 0
