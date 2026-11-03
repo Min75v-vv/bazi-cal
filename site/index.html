@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>八字日历订阅</title>
+<style>body{font-family:system-ui,sans-serif;max-width:40rem;margin:2rem auto;padding:0 1rem;line-height:1.6}code{word-break:break-all}</style>
+</head>
+<body>
+<h1>八字趋吉避凶日历</h1>
+<p>订阅地址：<code id="u"></code></p>
+<p><a id="w">用系统日历订阅（webcal）</a> · <a href="bazi.ics">下载 bazi.ics</a></p>
+<script>
+var u = new URL("bazi.ics", location.href).href;
+document.getElementById("u").textContent = u;
+document.getElementById("w").href = u.replace(/^https?:/, "webcal:");
+</script>
+</body>
+</html>
