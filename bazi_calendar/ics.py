@@ -45,7 +45,7 @@ def build_calendar(events: list[AllDayEvent], cal_name: str,
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//rili-haoge//bazi-calendar//ZH",
+        "PRODID:-//bazi-cal//bazi-calendar//ZH",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
         f"X-WR-CALNAME:{escape_text(cal_name)}",

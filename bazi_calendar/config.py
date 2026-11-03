@@ -32,7 +32,6 @@ class Config:
     calendar_timezone: str = "Asia/Shanghai"
     days: int = 365
     yiji_count: int = 2
-    uid_domain: str = "rili-haoge.bazi"
 
 
 def _str_list(name: str, val) -> list[str]:
@@ -76,5 +75,4 @@ def parse_config(data: dict) -> Config:
         calendar_timezone=cal.get("timezone", "Asia/Shanghai"),
         days=int(cal.get("days", 365)),
         yiji_count=int(cal.get("yiji_count", 2)),
-        uid_domain=cal.get("uid_domain", "rili-haoge.bazi"),
     )

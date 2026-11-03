@@ -12,6 +12,9 @@ from .config import Config, load_config
 from .ganzhi import WUXING, ZHI_HIDE_GAN, pillar_relations, shishen, wuxing_effect, wuxing_of
 from .ics import AllDayEvent, build_calendar
 
+# 事件 UID 的域名部分；固定值，保证每月重新生成时同一天的 UID 不变
+UID_DOMAIN = "bazi-cal"
+
 
 def tier_wuxing(shen: dict[str, list[str]], day_master: str) -> dict[str, list[str]]:
     """把规范化后的四维用神换算回五行，用于描述「五行对用神的作用」。"""
@@ -86,7 +89,7 @@ def build_events(cfg: Config, natal: Natal, start: date, days: int) -> list[AllD
         events.append(AllDayEvent(
             day=info.day, summary=summary,
             description=describe(info, natal, shen, sc),
-            uid=f"{info.day:%Y%m%d}@{cfg.uid_domain}",
+            uid=f"{info.day:%Y%m%d}@{UID_DOMAIN}",
         ))
     return events
 

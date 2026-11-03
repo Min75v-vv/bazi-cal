@@ -39,4 +39,3 @@ calendar:
   timezone: Asia/Shanghai   # 「今天」按哪个时区算
   days: 365
   yiji_count: 2             # 标题里黄历宜、忌各取前几项
-  uid_domain: rili-haoge.bazi
