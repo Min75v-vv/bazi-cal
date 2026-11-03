@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from bazi_calendar.config import RELATION_KEYS, parse_config
+from bazi_calendar.config import parse_config
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -14,21 +14,20 @@ def base():
 
 def test_repo_config_is_valid():
     cfg = parse_config(base())
-    assert set(cfg.scoring.day_pillar) == set(RELATION_KEYS)
+    assert cfg.shen == {"yong": ["水"], "xi": ["金"], "ji": ["土"], "chou": ["火"]}
     assert cfg.zi_hour_sect == 1 and cfg.equation_of_time is True
 
 
-def test_missing_relation_weight_defaults_to_zero():
+def test_shen_single_string_allowed():
     d = base()
-    del d["scoring"]["day_pillar"]["伏吟"]
-    assert parse_config(d).scoring.day_pillar["伏吟"] == 0
+    d["shen"] = {"yong": "印星"}
+    assert parse_config(d).shen == {"yong": ["印星"], "xi": [], "ji": [], "chou": []}
 
 
 @pytest.mark.parametrize("mutate", [
-    lambda d: d.update(xiyong=["水", "风"]),
-    lambda d: d.update(xiyong=["水"], jishen=["水"]),
-    lambda d: d["scoring"]["day_pillar"].update({"三刑": -1}),
-    lambda d: d["scoring"]["thresholds"].update(ji_min=-5),
+    lambda d: d.update(shen={"xi": ["金"]}),                 # 缺用神
+    lambda d: d.update(shen={"yong": ["水"], "xian": ["木"]}),  # 未知层级
+    lambda d: d.update(shen={"yong": [1]}),
     lambda d: d.update(zi_hour_sect=3),
 ])
 def test_invalid_config_rejected(mutate):

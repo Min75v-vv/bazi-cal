@@ -30,7 +30,8 @@ def test_build_events_and_main(tmp_path):
     events = build_events(cfg, natal_chart(cfg), date(2026, 1, 1), 365)
     assert len(events) == 365
     assert len({e.uid for e in events}) == 365
-    assert all(e.summary[0] in "吉平凶" and "日 · " in e.summary for e in events)
+    assert all(e.summary.split("｜")[0] in ("优", "良", "平", "注意", "慎行")
+               and "日 · " in e.summary for e in events)
 
     out = tmp_path / "bazi.ics"
     assert main(["--config", str(ROOT / "config.yaml"), "--out", str(out),
