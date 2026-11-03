@@ -39,16 +39,26 @@ jobs:
         if: env.BAZI_CONFIG != ''
         run: printf '%s' "$BAZI_CONFIG" > config.yaml
 
+      # 订阅地址 = https://<用户名>.github.io/<仓库名>/<ICS_PATH>/bazi.ics
+      # ICS_PATH 是存在仓库 Secret 里的随机串，相当于访问密码；未设置时拒绝发布，
+      # 以免把日历发布到可以猜出来的地址。Secret 的值在日志里会被自动遮蔽。
       - name: 生成 bazi.ics
+        env:
+          ICS_PATH: ${{ secrets.ICS_PATH }}
         run: |
-          python -m bazi_calendar --config config.yaml --out public/bazi.ics
-          cp site/index.html public/index.html
+          if ! printf '%s' "$ICS_PATH" | grep -Eq '^[A-Za-z0-9_-]{24,}$'; then
+            echo "::error::请设置仓库 Secret ICS_PATH（至少 24 位，仅字母数字 - _）"
+            exit 1
+          fi
+          echo "::add-mask::$ICS_PATH"
+          python -m bazi_calendar --config config.yaml --out "public/$ICS_PATH/bazi.ics"
           touch public/.nojekyll
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
+          retention-days: 1
 
   deploy:
     needs: build
@@ -59,3 +69,18 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Pages 构建产物里含有随机路径，公开仓库中任何登录用户都能下载，部署完立即删除
+  cleanup:
+    needs: deploy
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: 删除本次运行的构建产物
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --jq '.artifacts[].id' |
+            while read -r id; do gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id"; done

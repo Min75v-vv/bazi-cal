@@ -46,7 +46,19 @@ python -m bazi_calendar --start 2027-01-01 --days 30 --out /tmp/test.ics
 
 `.github/workflows/build.yml`：每月 1 日 08:37（北京时间）、推送到 `main` 时、或手动触发，跑测试 → 生成 → 发布到 GitHub Pages。
 
-首次使用：仓库 **Settings → Pages → Build and deployment → Source** 选 **GitHub Actions**。订阅地址为
-`https://<用户名>.github.io/<仓库名>/bazi.ics`（日历 App 里用「订阅日历 / 从 URL 添加」）。
+首次使用：
 
-不想把出生信息提交进仓库：把完整的 config.yaml 内容存成仓库 Secret `BAZI_CONFIG`，工作流会用它覆盖仓库里的 config.yaml。注意 Pages 上的 bazi.ics 本身是公开可访问的，里面带有命盘四柱。
+1. 仓库 **Settings → Pages → Build and deployment → Source** 选 **GitHub Actions**。
+2. 仓库 **Settings → Secrets and variables → Actions** 新建两个 Secret：
+   - `ICS_PATH`：随机串（至少 24 位，仅字母数字 `-` `_`），可用 `python -c "import secrets; print(secrets.token_urlsafe(24))"` 生成。**未设置时工作流拒绝发布。**
+   - `BAZI_CONFIG`（可选）：完整的 config.yaml 内容，覆盖仓库里的占位配置，出生信息不进仓库。
+
+订阅地址为 `https://<用户名>.github.io/<仓库名>/<ICS_PATH>/bazi.ics`（日历 App 里用「订阅日历 / 从 URL 添加」）。
+
+隐私说明：
+
+- Pages 网站本身总是公开的，日历 App 订阅也不支持登录，所以访问控制只能靠 `ICS_PATH` 这串随机路径——它相当于密码，不要外传；需要作废时换一个新值再重新发布即可。
+- 网站不提供首页或目录，日历文件只在随机路径下。
+- 日历描述里有命盘四柱，懂八字的人能据此反推出生日期与时辰。
+- 生成程序默认不在日志里打印命盘（公开仓库的 Actions 日志任何人可见）；本地需要查看时用 `--show-chart`。
+- 构建产物里含随机路径，部署完成后由 `cleanup` 任务立即删除。
