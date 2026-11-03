@@ -1,0 +1,61 @@
+name: 生成八字日历并发布
+
+on:
+  schedule:
+    # 每月 1 日 08:37（北京时间）= 00:37 UTC，生成从当天起的 365 天
+    - cron: "37 0 1 * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements-dev.txt
+
+      - name: 单元测试
+        run: python -m pytest -q
+
+      - name: 可选：用仓库 Secret 覆盖 config.yaml
+        env:
+          BAZI_CONFIG: ${{ secrets.BAZI_CONFIG }}
+        if: env.BAZI_CONFIG != ''
+        run: printf '%s' "$BAZI_CONFIG" > config.yaml
+
+      - name: 生成 bazi.ics
+        run: |
+          python -m bazi_calendar --config config.yaml --out public/bazi.ics
+          cp site/index.html public/index.html
+          touch public/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
