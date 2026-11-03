@@ -30,7 +30,7 @@ class Config:
     zi_hour_sect: int = 1
     calendar_name: str = "八字趋吉避凶"
     calendar_timezone: str = "Asia/Shanghai"
-    days: int = 365
+    days: int = 730
     yiji_count: int = 2
 
 
@@ -73,6 +73,6 @@ def parse_config(data: dict) -> Config:
         zi_hour_sect=sect,
         calendar_name=cal.get("name", "八字趋吉避凶"),
         calendar_timezone=cal.get("timezone", "Asia/Shanghai"),
-        days=int(cal.get("days", 365)),
+        days=int(cal.get("days", 730)),
         yiji_count=int(cal.get("yiji_count", 2)),
     )

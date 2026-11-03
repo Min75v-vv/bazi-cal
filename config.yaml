@@ -37,5 +37,5 @@ shen:
 calendar:
   name: 八字趋吉避凶
   timezone: Asia/Shanghai   # 「今天」按哪个时区算
-  days: 365
+  days: 730                 # 自动发布时以 workflow 里的 CALENDAR_DAYS 为准
   yiji_count: 2             # 标题里黄历宜、忌各取前几项

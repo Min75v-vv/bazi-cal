@@ -13,7 +13,7 @@
 ```bash
 pip install -r requirements-dev.txt
 python -m pytest -q                       # 单元测试
-python -m bazi_calendar                   # 生成 public/bazi.ics（今天起 365 天）
+python -m bazi_calendar                   # 生成 public/bazi.ics（今天起 730 天）
 python -m bazi_calendar --start 2027-01-01 --days 30 --out /tmp/test.ics
 ```
 
@@ -44,7 +44,7 @@ python -m bazi_calendar --start 2027-01-01 --days 30 --out /tmp/test.ics
 
 ## 自动发布
 
-`.github/workflows/build.yml`：每月 1 日 08:37（北京时间）、推送到 `main` 时、或手动触发，跑测试 → 生成 → 发布到 GitHub Pages。
+`.github/workflows/build.yml`：每月 1 日 08:37（北京时间）、推送到 `main` 时、或手动触发，跑测试 → 生成 → 发布到 GitHub Pages。生成天数由 workflow 顶部的 `CALENDAR_DAYS`（默认 730，即两年）决定，优先于配置里的 `calendar.days`。
 
 首次使用：
 

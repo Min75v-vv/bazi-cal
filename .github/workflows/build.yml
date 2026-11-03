@@ -2,7 +2,7 @@ name: 生成八字日历并发布
 
 on:
   schedule:
-    # 每月 1 日 08:37（北京时间）= 00:37 UTC，生成从当天起的 365 天
+    # 每月 1 日 08:37（北京时间）= 00:37 UTC，生成从当天起的 CALENDAR_DAYS 天
     - cron: "37 0 1 * *"
   push:
     branches: [main]
@@ -12,6 +12,10 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
+env:
+  # 生成天数；这里的值优先于 config.yaml / BAZI_CONFIG 里的 calendar.days
+  CALENDAR_DAYS: 730
 
 concurrency:
   group: pages
@@ -51,7 +55,7 @@ jobs:
             exit 1
           fi
           echo "::add-mask::$ICS_PATH"
-          python -m bazi_calendar --config config.yaml --out "public/$ICS_PATH/bazi.ics"
+          python -m bazi_calendar --config config.yaml --days "$CALENDAR_DAYS" --out "public/$ICS_PATH/bazi.ics"
           touch public/.nojekyll
 
       - uses: actions/configure-pages@v5
