@@ -53,7 +53,9 @@ def describe(info: DayInfo, natal: Natal, shen: dict[str, list[str]], sc: rules.
         "五行对用神的作用：",
         f"  天干{gan}{wuxing_of(gan)}：{effects(wuxing_of(gan))}",
         f"  地支{zhi}{wuxing_of(zhi)}：{effects(wuxing_of(zhi))}",
-        f"评分：{sc.final}（{sc.level}）＝ 基础 {rules.BASE_SCORE}",
+        # 等级字（优/良/平/注意/慎行）只出现在标题和下面的搜索词里，
+        # 避免日历 App 搜索时误命中其它日子
+        f"评分：{sc.final} ＝ 基础 {rules.BASE_SCORE}",
     ]
     lines += [f"  {i.points:+d} {i.reason}" for i in sc.items]
     if sc.is_kongwang:
@@ -61,14 +63,20 @@ def describe(info: DayInfo, natal: Natal, shen: dict[str, list[str]], sc: rules.
     if sc.final != sc.raw_total and not sc.is_kongwang:
         lines.append(f"  原始分 {sc.raw_total}，限定在 {rules.SCORE_MIN}–{rules.SCORE_MAX}")
     lines += [
-        "  （≥85 优 / ≥70 良 / ≥60 平 / ≥50 注意 / <50 慎行；规则移植自 oceanjustinlin/qimen）",
         f"黄历宜：{'、'.join(info.yi) or '无'}",
         f"黄历忌：{'、'.join(info.ji) or '无'}",
         f"命盘：{natal.year} {natal.month} {natal.day} {natal.time}（日主{dm}，日柱旬空{natal.day_xunkong}）",
         "用神：" + "；".join(f"{rules.TIER_LABELS[t]} {'、'.join(shen[t]) or '无'}"
                           for t in (rules.YONG, rules.XI, rules.JI, rules.CHOU)),
+        f"搜索词：{search_tag(sc.level)}",
     ]
     return "\n".join(lines)
+
+
+def search_tag(level: str) -> str:
+    """日历 App 里按等级搜索用的关键词，如「优日」。单字「平」会撞上建除「平」与黄历「平治道涂」，
+    所以统一加「日」字。"""
+    return f"{level}日"
 
 
 def score_for(info: DayInfo, natal: Natal, shen: dict[str, list[str]]) -> rules.DailyScore:

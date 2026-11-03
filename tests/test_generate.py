@@ -49,3 +49,20 @@ def test_main_does_not_print_chart_by_default(tmp_path, capsys):
     assert "命盘" not in printed and "真太阳时" not in printed
     main(["--config", str(ROOT / "config.yaml"), "--out", str(out), "--days", "1", "--show-chart"])
     assert "真太阳时" in capsys.readouterr().out
+
+
+def test_search_terms_match_only_their_level():
+    # iPhone / Google 日历搜索会同时搜标题和备注：「X日」必须只命中等级为 X 的日子
+    from bazi_calendar.generate import search_tag
+    cfg = load_config(ROOT / "config.yaml")
+    events = build_events(cfg, natal_chart(cfg), date(2026, 1, 1), 730)
+    levels = ("优", "良", "平", "注意", "慎行")
+    for lv in levels:
+        expected = {e.uid for e in events if e.summary.split("｜")[0] == lv}
+        assert expected, lv
+        hit = {e.uid for e in events if search_tag(lv) in e.summary + e.description}
+        assert hit == expected, lv
+    # 除「平」外，单独搜等级字本身也不应误命中
+    for lv in ("优", "良", "注意", "慎行"):
+        expected = {e.uid for e in events if e.summary.split("｜")[0] == lv}
+        assert {e.uid for e in events if lv in e.summary + e.description} == expected, lv
