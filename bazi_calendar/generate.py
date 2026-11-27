@@ -11,6 +11,7 @@ from .chart import DayInfo, Natal, day_info, natal_chart
 from .config import Config, load_config
 from .ganzhi import WUXING, ZHI_HIDE_GAN, pillar_relations, shishen, wuxing_effect, wuxing_of
 from .ics import AllDayEvent, build_calendar
+from .quotes import quote_for
 
 # 事件 UID 的域名部分；固定值，保证每月重新生成时同一天的 UID 不变
 UID_DOMAIN = "bazi-cal"
@@ -29,7 +30,8 @@ def tier_wuxing(shen: dict[str, list[str]], day_master: str) -> dict[str, list[s
     return out
 
 
-def describe(info: DayInfo, natal: Natal, shen: dict[str, list[str]], sc: rules.DailyScore) -> str:
+def describe(info: DayInfo, natal: Natal, shen: dict[str, list[str]], sc: rules.DailyScore,
+             headline: str | None = None) -> str:
     gz = info.ganzhi
     gan, zhi = gz[0], gz[1]
     dm = natal.day_master
@@ -44,7 +46,9 @@ def describe(info: DayInfo, natal: Natal, shen: dict[str, list[str]], sc: rules.
                  for tier, elems in tw.items() for t in elems]
         return "、".join(parts) or "未设用神"
 
-    lines = [
+    # 标题用格言时，原来的吉凶标题放在详情第一行，点开事件第一眼就能看到
+    lines = [headline, ""] if headline else []
+    lines += [
         f"当日干支：{gz}日（{info.month_ganzhi}月 {info.year_ganzhi}年），建除「{info.zhixing}」",
         f"十神：天干{gan}为{shishen(dm, gan)}；地支{zhi}藏干 {hide}",
         f"与日柱{natal.day}：{rel(natal.day)}",
@@ -53,7 +57,7 @@ def describe(info: DayInfo, natal: Natal, shen: dict[str, list[str]], sc: rules.
         "五行对用神的作用：",
         f"  天干{gan}{wuxing_of(gan)}：{effects(wuxing_of(gan))}",
         f"  地支{zhi}{wuxing_of(zhi)}：{effects(wuxing_of(zhi))}",
-        # 等级字（优/良/平/注意/慎行）只出现在标题和下面的搜索词里，
+        # 等级字（优/良/平/注意/慎行）只出现在吉凶标题和下面的搜索词里，
         # 避免日历 App 搜索时误命中其它日子
         f"评分：{sc.final} ＝ 基础 {rules.BASE_SCORE}",
     ]
@@ -92,11 +96,18 @@ def build_events(cfg: Config, natal: Natal, start: date, days: int) -> list[AllD
     for k in range(days):
         info = day_info(start + timedelta(days=k))
         sc = score_for(info, natal, shen)
-        summary = rules.title(sc.level, rules.shishen_day(natal.day_master, info.ganzhi),
+        fortune = rules.title(sc.level, rules.shishen_day(natal.day_master, info.ganzhi),
                               rules.yiji_sentence(info.yi, info.ji, cfg.yiji_count))
+        if cfg.title == "quote":
+            quote = quote_for(info.day)
+            summary, headline = str(quote), fortune
+            if quote.original:
+                headline += f"\n格言原文：{quote.original}"
+        else:
+            summary, headline = fortune, None
         events.append(AllDayEvent(
             day=info.day, summary=summary,
-            description=describe(info, natal, shen, sc),
+            description=describe(info, natal, shen, sc, headline),
             uid=f"{info.day:%Y%m%d}@{UID_DOMAIN}",
         ))
     return events

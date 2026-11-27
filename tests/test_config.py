@@ -35,3 +35,13 @@ def test_invalid_config_rejected(mutate):
     mutate(d)
     with pytest.raises(ValueError):
         parse_config(d)
+
+
+def test_title_style():
+    assert parse_config(base()).title == "quote"
+    d = base()
+    d["calendar"]["title"] = "fortune"
+    assert parse_config(d).title == "fortune"
+    d["calendar"]["title"] = "格言"
+    with pytest.raises(ValueError):
+        parse_config(d)

@@ -6,6 +6,12 @@ from bazi_calendar.config import load_config
 from bazi_calendar.generate import build_events, main
 
 ROOT = Path(__file__).resolve().parent.parent
+LEVELS = ("优", "良", "平", "注意", "慎行")
+
+
+def level_of(e):
+    """格言标题下，吉凶标题在详情第一行。"""
+    return e.description.split("\n", 1)[0].split("｜")[0]
 
 
 def test_day_info_known_date():
@@ -30,8 +36,11 @@ def test_build_events_and_main(tmp_path):
     events = build_events(cfg, natal_chart(cfg), date(2026, 1, 1), 365)
     assert len(events) == 365
     assert len({e.uid for e in events}) == 365
-    assert all(e.summary.split("｜")[0] in ("优", "良", "平", "注意", "慎行")
-               and "日 · " in e.summary for e in events)
+    first_lines = [e.description.split("\n", 1)[0] for e in events]
+    assert all(level_of(e) in LEVELS and "日 · " in line for e, line in zip(events, first_lines))
+    assert all(e.summary not in line for e, line in zip(events, first_lines))
+    # 一年 365 天的格言互不重复
+    assert len({e.summary for e in events}) == 365
 
     out = tmp_path / "bazi.ics"
     assert main(["--config", str(ROOT / "config.yaml"), "--out", str(out),
@@ -56,13 +65,31 @@ def test_search_terms_match_only_their_level():
     from bazi_calendar.generate import search_tag
     cfg = load_config(ROOT / "config.yaml")
     events = build_events(cfg, natal_chart(cfg), date(2026, 1, 1), 730)
-    levels = ("优", "良", "平", "注意", "慎行")
-    for lv in levels:
-        expected = {e.uid for e in events if e.summary.split("｜")[0] == lv}
+    for lv in LEVELS:
+        expected = {e.uid for e in events if level_of(e) == lv}
         assert expected, lv
         hit = {e.uid for e in events if search_tag(lv) in e.summary + e.description}
         assert hit == expected, lv
     # 除「平」外，单独搜等级字本身也不应误命中
     for lv in ("优", "良", "注意", "慎行"):
-        expected = {e.uid for e in events if e.summary.split("｜")[0] == lv}
+        expected = {e.uid for e in events if level_of(e) == lv}
         assert {e.uid for e in events if lv in e.summary + e.description} == expected, lv
+
+
+def test_fortune_title_style_keeps_old_layout():
+    cfg = load_config(ROOT / "config.yaml")
+    cfg.title = "fortune"
+    events = build_events(cfg, natal_chart(cfg), date(2026, 1, 1), 30)
+    assert all(e.summary.split("｜")[0] in LEVELS and "日 · " in e.summary for e in events)
+    assert all(e.description.startswith("当日干支") for e in events)
+
+
+def test_translated_quote_original_in_description():
+    from bazi_calendar.quotes import load_quotes, quote_for
+    cfg = load_config(ROOT / "config.yaml")
+    n = len(load_quotes())
+    events = build_events(cfg, natal_chart(cfg), date(2026, 1, 1), n)
+    translated = [e for e in events if quote_for(e.day).original]
+    assert translated
+    for e in translated:
+        assert e.description.split("\n")[1] == f"格言原文：{quote_for(e.day).original}"
