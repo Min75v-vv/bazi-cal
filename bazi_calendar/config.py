@@ -7,6 +7,7 @@ from pathlib import Path
 import yaml
 
 SHEN_KEYS = ("yong", "xi", "ji", "chou")
+TITLE_STYLES = ("quote", "fortune")
 
 
 @dataclass
@@ -32,6 +33,8 @@ class Config:
     calendar_timezone: str = "Asia/Shanghai"
     days: int = 730
     yiji_count: int = 2
+    # 事件标题：quote = 每日格言（吉凶放进详情第一行）；fortune = 原来的「等级｜十神日 · 宜忌」
+    title: str = "quote"
 
 
 def _str_list(name: str, val) -> list[str]:
@@ -67,6 +70,9 @@ def parse_config(data: dict) -> Config:
         raise ValueError("zi_hour_sect 只能是 1 或 2")
 
     cal = data.get("calendar", {})
+    title = cal.get("title", "quote")
+    if title not in TITLE_STYLES:
+        raise ValueError(f"calendar.title 只能是 {TITLE_STYLES}")
     return Config(
         birth=birth, shen=shen,
         equation_of_time=bool(data.get("true_solar_time", {}).get("equation_of_time", True)),
@@ -75,4 +81,5 @@ def parse_config(data: dict) -> Config:
         calendar_timezone=cal.get("timezone", "Asia/Shanghai"),
         days=int(cal.get("days", 730)),
         yiji_count=int(cal.get("yiji_count", 2)),
+        title=title,
     )

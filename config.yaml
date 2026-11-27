@@ -38,4 +38,6 @@ calendar:
   name: 八字趋吉避凶
   timezone: Asia/Shanghai   # 「今天」按哪个时区算
   days: 730                 # 自动发布时以 workflow 里的 CALENDAR_DAYS 为准
-  yiji_count: 2             # 标题里黄历宜、忌各取前几项
+  yiji_count: 2             # 吉凶标题里黄历宜、忌各取前几项
+  # 事件标题：quote = 每日格言（吉凶标题挪到详情第一行）；fortune = 吉凶标题，如「良｜正印日 · 宜祭祀、出行，忌动土、安葬」
+  title: quote
