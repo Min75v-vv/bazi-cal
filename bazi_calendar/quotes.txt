@@ -1,4 +1,4 @@
-# 每日格言：一行一句，格式为「句子|出处」；# 开头的行和空行会被忽略。
+# 每日格言：一行一句（外国名句保留原文，不翻译），格式为「句子|出处」；# 开头的行和空行会被忽略。
 # 同一天总是对应同一句；句子总数不少于 366 时，任意连续一年内不会重复。
 # 不要写进「优」「良」「注意」「慎行」或「平日」，以免日历 App 按等级搜索时误命中（有测试检查）。
 学而时习之，不亦说乎|《论语》
@@ -411,3 +411,120 @@
 一寸光阴一寸金，寸金难买寸光阴|《增广贤文》
 书到用时方恨少，事非经过不知难|《增广贤文》
 吃一堑，长一智|俗语
+
+# ---- 外国名句（原文，不翻译）----
+We are what we repeatedly do.|Will Durant, on Aristotle
+Carpe diem.|Horace, Odes
+Festina lente.|Latin proverb
+Per aspera ad astra.|Latin proverb
+Dum spiro, spero.|Latin proverb
+Memento mori.|Latin proverb
+Amor fati.|Friedrich Nietzsche
+Ars longa, vita brevis.|Hippocrates (Latin)
+Fortes fortuna adiuvat.|Terence
+Gutta cavat lapidem.|Ovid
+Veni, vidi, vici.|Julius Caesar
+Non scholae sed vitae discimus.|after Seneca
+To be, or not to be, that is the question.|William Shakespeare, Hamlet
+This above all: to thine own self be true.|William Shakespeare, Hamlet
+There is nothing either good or bad, but thinking makes it so.|William Shakespeare, Hamlet
+All the world's a stage, and all the men and women merely players.|William Shakespeare, As You Like It
+We know what we are, but know not what we may be.|William Shakespeare, Hamlet
+What's past is prologue.|William Shakespeare, The Tempest
+The fault, dear Brutus, is not in our stars, but in ourselves.|William Shakespeare, Julius Caesar
+Our doubts are traitors, and make us lose the good we oft might win by fearing to attempt.|William Shakespeare, Measure for Measure
+We are such stuff as dreams are made on.|William Shakespeare, The Tempest
+Love all, trust a few, do wrong to none.|William Shakespeare, All's Well That Ends Well
+Reading maketh a full man; conference a ready man; and writing an exact man.|Francis Bacon, Of Studies
+No man is an island.|John Donne
+The mind is its own place, and in itself can make a heaven of hell, a hell of heaven.|John Milton, Paradise Lost
+They also serve who only stand and wait.|John Milton
+To err is human, to forgive divine.|Alexander Pope
+Hope springs eternal in the human breast.|Alexander Pope
+A little learning is a dangerous thing.|Alexander Pope
+Well done is better than well said.|Benjamin Franklin
+Lost time is never found again.|Benjamin Franklin
+Energy and persistence conquer all things.|Benjamin Franklin
+To see a World in a Grain of Sand, and a Heaven in a Wild Flower.|William Blake
+The road of excess leads to the palace of wisdom.|William Blake
+A thing of beauty is a joy for ever.|John Keats, Endymion
+Beauty is truth, truth beauty.|John Keats
+If Winter comes, can Spring be far behind?|Percy Bysshe Shelley
+To strive, to seek, to find, and not to yield.|Alfred Tennyson, Ulysses
+'Tis better to have loved and lost than never to have loved at all.|Alfred Tennyson
+Two roads diverged in a wood, and I— I took the one less traveled by.|Robert Frost
+The woods are lovely, dark and deep, but I have promises to keep.|Robert Frost
+Hope is the thing with feathers that perches in the soul.|Emily Dickinson
+I took a deep breath and listened to the old brag of my heart: I am, I am, I am.|Sylvia Plath
+I went to the woods because I wished to live deliberately.|Henry David Thoreau, Walden
+Our life is frittered away by detail. Simplify, simplify.|Henry David Thoreau, Walden
+If one advances confidently in the direction of his dreams, he will meet with a success unexpected in common hours.|Henry David Thoreau, Walden
+Rather than love, than money, than fame, give me truth.|Henry David Thoreau, Walden
+Nothing great was ever achieved without enthusiasm.|Ralph Waldo Emerson
+Trust thyself: every heart vibrates to that iron string.|Ralph Waldo Emerson, Self-Reliance
+Adopt the pace of nature: her secret is patience.|Ralph Waldo Emerson
+Write it on your heart that every day is the best day in the year.|Ralph Waldo Emerson
+I am large, I contain multitudes.|Walt Whitman, Song of Myself
+It was the best of times, it was the worst of times.|Charles Dickens, A Tale of Two Cities
+It is a far, far better thing that I do, than I have ever done.|Charles Dickens, A Tale of Two Cities
+Not all those who wander are lost.|J. R. R. Tolkien
+We are all in the gutter, but some of us are looking at the stars.|Oscar Wilde
+I can resist everything except temptation.|Oscar Wilde
+Imagination is more important than knowledge.|Albert Einstein
+The world breaks everyone and afterward many are strong at the broken places.|Ernest Hemingway, A Farewell to Arms
+So we beat on, boats against the current, borne back ceaselessly into the past.|F. Scott Fitzgerald, The Great Gatsby
+The only thing we have to fear is fear itself.|Franklin D. Roosevelt
+Do what you can, with what you have, where you are.|Theodore Roosevelt
+Il faut cultiver notre jardin.|Voltaire, Candide
+Le mieux est l'ennemi du bien.|Voltaire
+On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.|Antoine de Saint-Exupéry, Le Petit Prince
+C'est le temps que tu as perdu pour ta rose qui fait ta rose si importante.|Antoine de Saint-Exupéry, Le Petit Prince
+Le cœur a ses raisons que la raison ne connaît point.|Blaise Pascal, Pensées
+L'homme n'est qu'un roseau, le plus faible de la nature; mais c'est un roseau pensant.|Blaise Pascal, Pensées
+Rien ne sert de courir; il faut partir à point.|Jean de La Fontaine
+Petit à petit, l'oiseau fait son nid.|French proverb
+La vie est un sommeil, l'amour en est le rêve.|Alfred de Musset
+Il n'y a qu'un héroïsme au monde: c'est de voir le monde tel qu'il est, et de l'aimer.|Romain Rolland
+Je pense, donc je suis.|René Descartes
+Le génie n'est qu'une plus grande aptitude à la patience.|Buffon
+Was mich nicht umbringt, macht mich stärker.|Friedrich Nietzsche
+Wer ein Warum zum Leben hat, erträgt fast jedes Wie.|Friedrich Nietzsche
+Es irrt der Mensch, solang er strebt.|Johann Wolfgang von Goethe, Faust
+Grau, teurer Freund, ist alle Theorie, und grün des Lebens goldner Baum.|Johann Wolfgang von Goethe, Faust
+Edel sei der Mensch, hilfreich und gut!|Johann Wolfgang von Goethe
+Es ist nicht genug zu wissen, man muss auch anwenden; es ist nicht genug zu wollen, man muss auch tun.|Johann Wolfgang von Goethe
+Zwei Dinge erfüllen das Gemüt mit immer neuer und zunehmender Bewunderung: der bestirnte Himmel über mir und das moralische Gesetz in mir.|Immanuel Kant
+Habe Mut, dich deines eigenen Verstandes zu bedienen!|Immanuel Kant
+Die Grenzen meiner Sprache bedeuten die Grenzen meiner Welt.|Ludwig Wittgenstein
+Wovon man nicht sprechen kann, darüber muss man schweigen.|Ludwig Wittgenstein
+Und jedem Anfang wohnt ein Zauber inne.|Hermann Hesse, Stufen
+Man muss das Unmögliche versuchen, um das Mögliche zu erreichen.|Hermann Hesse
+Fatti non foste a viver come bruti, ma per seguir virtute e canoscenza.|Dante Alighieri, Inferno
+Segui il tuo corso, e lascia dir le genti.|Dante Alighieri, Purgatorio
+Chi va piano va sano e va lontano.|Italian proverb
+Eppur si muove.|attributed to Galileo Galilei
+Caminante, no hay camino, se hace camino al andar.|Antonio Machado
+La vida es sueño, y los sueños, sueños son.|Pedro Calderón de la Barca
+El que lee mucho y anda mucho, ve mucho y sabe mucho.|Miguel de Cervantes, Don Quijote
+Poco a poco se va lejos.|Spanish proverb
+Yo soy yo y mi circunstancia.|José Ortega y Gasset
+Красота спасёт мир.|Фёдор Достоевский, Идиот
+Все счастливые семьи похожи друг на друга.|Лев Толстой, Анна Каренина
+一期一会|日本茶道
+七転び八起き|日本の諺
+継続は力なり|日本の諺
+石の上にも三年|日本の諺
+Γνῶθι σεαυτόν.|Inscription at Delphi
+ὁ δὲ ἀνεξέταστος βίος οὐ βιωτὸς ἀνθρώπῳ.|Socrates (Plato, Apology)
+Ἦθος ἀνθρώπῳ δαίμων.|Heraclitus
+Πάντα ῥεῖ.|after Heraclitus
+Ταράσσει τοὺς ἀνθρώπους οὐ τὰ πράγματα, ἀλλὰ τὰ περὶ τῶν πραγμάτων δόγματα.|Epictetus, Enchiridion
+Non exiguum temporis habemus, sed multum perdidimus.|Seneca, De Brevitate Vitae
+Dum differtur vita transcurrit.|Seneca, Epistulae
+Saepius opinione quam re laboramus.|Seneca, Epistulae
+Ipsa scientia potestas est.|Francis Bacon
+Experience is the name every one gives to their mistakes.|Oscar Wilde
+Courage is resistance to fear, mastery of fear—not absence of fear.|Mark Twain, Pudd'nhead Wilson
+Il faut imaginer Sisyphe heureux.|Albert Camus, Le Mythe de Sisyphe
+Au milieu de l'hiver, j'apprenais enfin qu'il y avait en moi un été invincible.|Albert Camus, Retour à Tipasa
+Ce que l'on conçoit bien s'énonce clairement.|Nicolas Boileau, L'Art poétique
