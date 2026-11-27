@@ -1,4 +1,4 @@
-# 每日格言：一行一句（外国名句保留原文，不翻译），格式为「句子|出处」；# 开头的行和空行会被忽略。
+# 每日格言：一行一句，格式为「句子|出处」或「中文译文|出处|原文」；# 开头的行和空行会被忽略。
 # 同一天总是对应同一句；句子总数不少于 366 时，任意连续一年内不会重复。
 # 不要写进「优」「良」「注意」「慎行」或「平日」，以免日历 App 按等级搜索时误命中（有测试检查）。
 学而时习之，不亦说乎|《论语》
@@ -412,19 +412,19 @@
 书到用时方恨少，事非经过不知难|《增广贤文》
 吃一堑，长一智|俗语
 
-# ---- 外国名句（原文，不翻译）----
+# ---- 外国名句：英文保留原文；其他语言写「中文译文|出处|原文」，标题显示译文，原文放在详情里 ----
 We are what we repeatedly do.|Will Durant, on Aristotle
-Carpe diem.|Horace, Odes
-Festina lente.|Latin proverb
-Per aspera ad astra.|Latin proverb
-Dum spiro, spero.|Latin proverb
-Memento mori.|Latin proverb
-Amor fati.|Friedrich Nietzsche
-Ars longa, vita brevis.|Hippocrates (Latin)
-Fortes fortuna adiuvat.|Terence
-Gutta cavat lapidem.|Ovid
-Veni, vidi, vici.|Julius Caesar
-Non scholae sed vitae discimus.|after Seneca
+把握今天。|贺拉斯《颂歌》|Carpe diem.
+欲速则缓，稳中求进。|拉丁谚语|Festina lente.
+循此苦旅，以达天际。|拉丁谚语|Per aspera ad astra.
+一息尚存，希望不灭。|拉丁谚语|Dum spiro, spero.
+勿忘人终有一死。|拉丁谚语|Memento mori.
+热爱命运。|尼采|Amor fati.
+技艺长久，人生短暂。|希波克拉底|Ars longa, vita brevis.
+命运眷顾勇者。|泰伦提乌斯|Fortes fortuna adiuvat.
+滴水穿石。|奥维德|Gutta cavat lapidem.
+我来，我见，我征服。|恺撒|Veni, vidi, vici.
+我们不是为学校而学，而是为人生而学。|化用塞涅卡|Non scholae sed vitae discimus.
 To be, or not to be, that is the question.|William Shakespeare, Hamlet
 This above all: to thine own self be true.|William Shakespeare, Hamlet
 There is nothing either good or bad, but thinking makes it so.|William Shakespeare, Hamlet
@@ -475,56 +475,56 @@ The world breaks everyone and afterward many are strong at the broken places.|Er
 So we beat on, boats against the current, borne back ceaselessly into the past.|F. Scott Fitzgerald, The Great Gatsby
 The only thing we have to fear is fear itself.|Franklin D. Roosevelt
 Do what you can, with what you have, where you are.|Theodore Roosevelt
-Il faut cultiver notre jardin.|Voltaire, Candide
-Le mieux est l'ennemi du bien.|Voltaire
-On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.|Antoine de Saint-Exupéry, Le Petit Prince
-C'est le temps que tu as perdu pour ta rose qui fait ta rose si importante.|Antoine de Saint-Exupéry, Le Petit Prince
-Le cœur a ses raisons que la raison ne connaît point.|Blaise Pascal, Pensées
-L'homme n'est qu'un roseau, le plus faible de la nature; mais c'est un roseau pensant.|Blaise Pascal, Pensées
-Rien ne sert de courir; il faut partir à point.|Jean de La Fontaine
-Petit à petit, l'oiseau fait son nid.|French proverb
-La vie est un sommeil, l'amour en est le rêve.|Alfred de Musset
-Il n'y a qu'un héroïsme au monde: c'est de voir le monde tel qu'il est, et de l'aimer.|Romain Rolland
-Je pense, donc je suis.|René Descartes
-Le génie n'est qu'une plus grande aptitude à la patience.|Buffon
-Was mich nicht umbringt, macht mich stärker.|Friedrich Nietzsche
-Wer ein Warum zum Leben hat, erträgt fast jedes Wie.|Friedrich Nietzsche
-Es irrt der Mensch, solang er strebt.|Johann Wolfgang von Goethe, Faust
-Grau, teurer Freund, ist alle Theorie, und grün des Lebens goldner Baum.|Johann Wolfgang von Goethe, Faust
-Edel sei der Mensch, hilfreich und gut!|Johann Wolfgang von Goethe
-Es ist nicht genug zu wissen, man muss auch anwenden; es ist nicht genug zu wollen, man muss auch tun.|Johann Wolfgang von Goethe
-Zwei Dinge erfüllen das Gemüt mit immer neuer und zunehmender Bewunderung: der bestirnte Himmel über mir und das moralische Gesetz in mir.|Immanuel Kant
-Habe Mut, dich deines eigenen Verstandes zu bedienen!|Immanuel Kant
-Die Grenzen meiner Sprache bedeuten die Grenzen meiner Welt.|Ludwig Wittgenstein
-Wovon man nicht sprechen kann, darüber muss man schweigen.|Ludwig Wittgenstein
-Und jedem Anfang wohnt ein Zauber inne.|Hermann Hesse, Stufen
-Man muss das Unmögliche versuchen, um das Mögliche zu erreichen.|Hermann Hesse
-Fatti non foste a viver come bruti, ma per seguir virtute e canoscenza.|Dante Alighieri, Inferno
-Segui il tuo corso, e lascia dir le genti.|Dante Alighieri, Purgatorio
-Chi va piano va sano e va lontano.|Italian proverb
-Eppur si muove.|attributed to Galileo Galilei
-Caminante, no hay camino, se hace camino al andar.|Antonio Machado
-La vida es sueño, y los sueños, sueños son.|Pedro Calderón de la Barca
-El que lee mucho y anda mucho, ve mucho y sabe mucho.|Miguel de Cervantes, Don Quijote
-Poco a poco se va lejos.|Spanish proverb
-Yo soy yo y mi circunstancia.|José Ortega y Gasset
-Красота спасёт мир.|Фёдор Достоевский, Идиот
-Все счастливые семьи похожи друг на друга.|Лев Толстой, Анна Каренина
-一期一会|日本茶道
-七転び八起き|日本の諺
-継続は力なり|日本の諺
-石の上にも三年|日本の諺
-Γνῶθι σεαυτόν.|Inscription at Delphi
-ὁ δὲ ἀνεξέταστος βίος οὐ βιωτὸς ἀνθρώπῳ.|Socrates (Plato, Apology)
-Ἦθος ἀνθρώπῳ δαίμων.|Heraclitus
-Πάντα ῥεῖ.|after Heraclitus
-Ταράσσει τοὺς ἀνθρώπους οὐ τὰ πράγματα, ἀλλὰ τὰ περὶ τῶν πραγμάτων δόγματα.|Epictetus, Enchiridion
-Non exiguum temporis habemus, sed multum perdidimus.|Seneca, De Brevitate Vitae
-Dum differtur vita transcurrit.|Seneca, Epistulae
-Saepius opinione quam re laboramus.|Seneca, Epistulae
-Ipsa scientia potestas est.|Francis Bacon
+我们得耕种自己的园地。|伏尔泰《老实人》|Il faut cultiver notre jardin.
+求全反而坏事。|伏尔泰|Le mieux est l'ennemi du bien.
+只有用心才能看清，真正重要的东西用眼睛是看不见的。|圣埃克苏佩里《小王子》|On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.
+你为你的玫瑰花费的时间，才使你的玫瑰变得如此重要。|圣埃克苏佩里《小王子》|C'est le temps que tu as perdu pour ta rose qui fait ta rose si importante.
+心有其理，非理性所能知。|帕斯卡《思想录》|Le cœur a ses raisons que la raison ne connaît point.
+人只不过是一根芦苇，是自然界最脆弱的东西，但他是一根能思想的芦苇。|帕斯卡《思想录》|L'homme n'est qu'un roseau, le plus faible de la nature; mais c'est un roseau pensant.
+跑得快没有用，要紧的是及时出发。|拉封丹《寓言》|Rien ne sert de courir; il faut partir à point.
+一点一点，鸟儿筑成了巢。|法国谚语|Petit à petit, l'oiseau fait son nid.
+人生是一场酣睡，爱情是其中的梦。|缪塞|La vie est un sommeil, l'amour en est le rêve.
+世上只有一种英雄主义，就是看清世界的本来面目，并且爱它。|罗曼·罗兰|Il n'y a qu'un héroïsme au monde: c'est de voir le monde tel qu'il est, et de l'aimer.
+我思故我在。|笛卡尔《谈谈方法》|Je pense, donc je suis.
+天才不过是更大的耐心。|布丰|Le génie n'est qu'une plus grande aptitude à la patience.
+杀不死我的，使我更强大。|尼采《偶像的黄昏》|Was mich nicht umbringt, macht mich stärker.
+知道为什么而活的人，几乎能忍受任何境遇。|尼采《偶像的黄昏》|Wer ein Warum zum Leben hat, erträgt fast jedes Wie.
+人只要奋斗，就会犯错。|歌德《浮士德》|Es irrt der Mensch, solang er strebt.
+理论是灰色的，生命之树常青。|歌德《浮士德》|Grau, teurer Freund, ist alle Theorie, und grün des Lebens goldner Baum.
+人应当高贵、助人、向善！|歌德《神性》|Edel sei der Mensch, hilfreich und gut!
+知道还不够，必须应用；愿意还不够，必须行动。|歌德|Es ist nicht genug zu wissen, man muss auch anwenden; es ist nicht genug zu wollen, man muss auch tun.
+有两样东西，越思索越令人敬畏：头顶的星空，和心中的道德律。|康德《实践理性批判》|Zwei Dinge erfüllen das Gemüt mit immer neuer und zunehmender Bewunderung: der bestirnte Himmel über mir und das moralische Gesetz in mir.
+要有勇气运用你自己的理智！|康德《何为启蒙》|Habe Mut, dich deines eigenen Verstandes zu bedienen!
+我的语言的界限，意味着我的世界的界限。|维特根斯坦《逻辑哲学论》|Die Grenzen meiner Sprache bedeuten die Grenzen meiner Welt.
+凡不可说的，应当沉默。|维特根斯坦《逻辑哲学论》|Wovon man nicht sprechen kann, darüber muss man schweigen.
+每一个开端都蕴藏着魔力。|黑塞《阶段》|Und jedem Anfang wohnt ein Zauber inne.
+必须尝试不可能之事，才能达成可能之事。|黑塞|Man muss das Unmögliche versuchen, um das Mögliche zu erreichen.
+你们生来不是为了像走兽一样活着，而是为了追求美德和知识。|但丁《神曲·地狱篇》|Fatti non foste a viver come bruti, ma per seguir virtute e canoscenza.
+走自己的路，让别人去说吧。|但丁《神曲·炼狱篇》|Segui il tuo corso, e lascia dir le genti.
+走得慢的人，走得稳，也走得远。|意大利谚语|Chi va piano va sano e va lontano.
+但它确实在转动。|相传为伽利略所说|Eppur si muove.
+行路人，本没有路，路是走出来的。|安东尼奥·马查多|Caminante, no hay camino, se hace camino al andar.
+人生如梦，而梦终究是梦。|卡尔德隆《人生如梦》|La vida es sueño, y los sueños, sueños son.
+读得多、走得多的人，见得多，也懂得多。|塞万提斯《堂吉诃德》|El que lee mucho y anda mucho, ve mucho y sabe mucho.
+一步一步，就能走远。|西班牙谚语|Poco a poco se va lejos.
+我是我，加上我的处境。|奥尔特加·加塞特|Yo soy yo y mi circunstancia.
+美将拯救世界。|陀思妥耶夫斯基《白痴》|Красота спасёт мир.
+幸福的家庭都是相似的。|托尔斯泰《安娜·卡列尼娜》|Все счастливые семьи похожи друг на друга.
+一生只此一次的相会，当以诚心相待。|日本茶道|一期一会
+七次跌倒，八次站起。|日本谚语|七転び八起き
+坚持就是力量。|日本谚语|継続は力なり
+在石头上坐三年也能坐暖，功到自然成。|日本谚语|石の上にも三年
+认识你自己。|德尔斐神庙箴言|Γνῶθι σεαυτόν.
+未经省察的人生不值得过。|苏格拉底（柏拉图《申辩篇》）|ὁ δὲ ἀνεξέταστος βίος οὐ βιωτὸς ἀνθρώπῳ.
+性格即命运。|赫拉克利特|Ἦθος ἀνθρώπῳ δαίμων.
+万物皆流。|化用赫拉克利特|Πάντα ῥεῖ.
+困扰人的不是事情本身，而是人对事情的看法。|爱比克泰德《手册》|Ταράσσει τοὺς ἀνθρώπους οὐ τὰ πράγματα, ἀλλὰ τὰ περὶ τῶν πραγμάτων δόγματα.
+我们的时间并不少，只是浪费得太多。|塞涅卡《论生命之短暂》|Non exiguum temporis habemus, sed multum perdidimus.
+一再拖延之间，人生已匆匆而过。|塞涅卡《道德书简》|Dum differtur vita transcurrit.
+让我们受苦的，多半是想象而不是现实。|塞涅卡《道德书简》|Saepius opinione quam re laboramus.
+知识就是力量。|培根|Ipsa scientia potestas est.
 Experience is the name every one gives to their mistakes.|Oscar Wilde
 Courage is resistance to fear, mastery of fear—not absence of fear.|Mark Twain, Pudd'nhead Wilson
-Il faut imaginer Sisyphe heureux.|Albert Camus, Le Mythe de Sisyphe
-Au milieu de l'hiver, j'apprenais enfin qu'il y avait en moi un été invincible.|Albert Camus, Retour à Tipasa
-Ce que l'on conçoit bien s'énonce clairement.|Nicolas Boileau, L'Art poétique
+应当想象西西弗斯是幸福的。|加缪《西西弗斯神话》|Il faut imaginer Sisyphe heureux.
+在隆冬，我终于知道，我身上有一个不可战胜的夏天。|加缪《重返蒂巴萨》|Au milieu de l'hiver, j'apprenais enfin qu'il y avait en moi un été invincible.
+想得清楚，才说得明白。|布瓦洛《诗艺》|Ce que l'on conçoit bien s'énonce clairement.

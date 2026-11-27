@@ -99,7 +99,10 @@ def build_events(cfg: Config, natal: Natal, start: date, days: int) -> list[AllD
         fortune = rules.title(sc.level, rules.shishen_day(natal.day_master, info.ganzhi),
                               rules.yiji_sentence(info.yi, info.ji, cfg.yiji_count))
         if cfg.title == "quote":
-            summary, headline = str(quote_for(info.day)), fortune
+            quote = quote_for(info.day)
+            summary, headline = str(quote), fortune
+            if quote.original:
+                headline += f"\n格言原文：{quote.original}"
         else:
             summary, headline = fortune, None
         events.append(AllDayEvent(

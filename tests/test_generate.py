@@ -82,3 +82,14 @@ def test_fortune_title_style_keeps_old_layout():
     events = build_events(cfg, natal_chart(cfg), date(2026, 1, 1), 30)
     assert all(e.summary.split("｜")[0] in LEVELS and "日 · " in e.summary for e in events)
     assert all(e.description.startswith("当日干支") for e in events)
+
+
+def test_translated_quote_original_in_description():
+    from bazi_calendar.quotes import load_quotes, quote_for
+    cfg = load_config(ROOT / "config.yaml")
+    n = len(load_quotes())
+    events = build_events(cfg, natal_chart(cfg), date(2026, 1, 1), n)
+    translated = [e for e in events if quote_for(e.day).original]
+    assert translated
+    for e in translated:
+        assert e.description.split("\n")[1] == f"格言原文：{quote_for(e.day).original}"

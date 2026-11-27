@@ -14,8 +14,9 @@ SHUFFLE_SEED = "bazi-cal-quotes"
 
 @dataclass(frozen=True)
 class Quote:
-    text: str
+    text: str      # 标题里显示的句子；非英文的外国名句这里是中文译文
     source: str
+    original: str = ""  # 外文原文（有译文时才有），放在事件详情里
 
     def __str__(self) -> str:
         return f"{self.text} ——{self.source}" if self.source else self.text
@@ -27,10 +28,10 @@ def parse_quotes(content: str) -> list[Quote]:
         line = raw.strip()
         if not line or line.startswith("#"):
             continue
-        text, sep, source = line.partition("|")
-        if not sep or not text.strip():
-            raise ValueError(f"格言第 {n} 行格式应为「句子|出处」：{raw!r}")
-        quotes.append(Quote(text.strip(), source.strip()))
+        parts = [x.strip() for x in line.split("|")]
+        if not 2 <= len(parts) <= 3 or not parts[0] or (len(parts) == 3 and not parts[2]):
+            raise ValueError(f"格言第 {n} 行格式应为「句子|出处」或「中文译文|出处|原文」：{raw!r}")
+        quotes.append(Quote(*parts))
     if not quotes:
         raise ValueError("格言文件里没有句子")
     return quotes
